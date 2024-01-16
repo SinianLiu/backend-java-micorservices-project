@@ -1,0 +1,19 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST:localhost}:3306/paymentdb
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 268268lsn
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      # whenever entity changes, auto reflects in database
+      ddl-auto: update
+  application:
+    name: PAYMENT-SERVICE
+  #    connect to ConfigServer
+  config:
+    import: configserver:${CONFIG_SERVER_URL:http://localhost:9296}
